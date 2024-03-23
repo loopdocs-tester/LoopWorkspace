@@ -223,6 +223,9 @@ jobs:
       - name: Customize Loop
         run: |
 
+          git update-index --cacheinfo 160000 0dfbaaef82a55b41102389016d94c245c7dec6c4 "OmniBLE"
+          git submodule update
+
           # LoopWorkspace patches
           # -applies any patches located in the LoopWorkspace/patches/ directory
           if $(ls ./patches/* &> /dev/null); then
