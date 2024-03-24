@@ -223,7 +223,13 @@ jobs:
       - name: Customize Loop
         run: |
 
-          git update-index --cacheinfo 160000 0dfbaaef82a55b41102389016d94c245c7dec6c4 "OmniBLE"
+          # set index to SHA from loopandlearn:silent_pod_and_diagnostic
+          git update-index --cacheinfo 160000 5ff65bee566378de23d4d4b32a867c8f8f0c6de6 "OmniBLE"
+          # set index to SHA from loopandlearn:silent_pod_and_diagnostic
+          git update-index --cacheinfo 160000 0174b224b35c0fc2370a3c3fe7217faea73360ad "OmniKit"
+          # set index to SHA from loopandlearn:add_dexcom_one_plus
+          git update-index --cacheinfo 160000 45030412cd9543bae946bf09183388bf1755e233 "G7SensorKit"
+          # update submodules to match the index (from above)
           git submodule update
 
           # LoopWorkspace patches
