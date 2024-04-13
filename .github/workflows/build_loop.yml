@@ -211,7 +211,6 @@ jobs:
         run: |
           echo ${{ steps.sync.outputs.has_new_commits }}
           echo "NEW_COMMITS=${{ steps.sync.outputs.has_new_commits }}" >> $GITHUB_OUTPUT
-
       - name: Checkout Repo for building
         uses: actions/checkout@v3
         with:
@@ -222,13 +221,11 @@ jobs:
       # Customize Loop: Download and apply patches
       - name: Customize Loop
         run: |
-
           # LoopWorkspace patches
           # -applies any patches located in the LoopWorkspace/patches/ directory
           if $(ls ./patches/* &> /dev/null); then
           git apply ./patches/* --allow-empty -v --whitespace=fix
           fi
-
           # Submodule Loop patches:
           # Template for customizing submodule Loop (changes Loop app name to "CustomLoop")
           # Remove the "#" sign from the beginning of the line below to activate:
@@ -240,12 +237,42 @@ jobs:
           #curl url_to_github_commit.patch | git apply --directory=LoopKit -v --whitespace=fix
           
           # Submodule xxxxx patches:
-
           # Add patches for customization of additional submodules by following the templates above, 
           # and make sure to specify the submodule by setting "--directory=(submodule_name)".
           # Several patches may be added per submodule.
           # Adding comments (#) may be useful to easily tell the individual patches apart.
+
+          # update to latest version of OmniBLE and OmniKit
+          cd OmniBLE
+          git switch dev
+          git pull
+          cd ..
+          cd OmniKit
+          git switch main
+          git pull
+          cd ..
           
+          # The lines below add the customizations listed using the CustomizationSelect script
+          # The "\" is a continuation character 
+          #   the line following a "\" should not be blank
+          /bin/bash -c "$(curl -fsSL \
+          https://raw.githubusercontent.com/loopandlearn/lnl-scripts/main/CustomizationSelect.sh)" \
+          dexcom_upload_readings \
+          future_carbs_4h \
+          no_auth \
+          now_line \
+          2002
+          # the final customization listed above CANNOT have a continuation character "\"
+          # more customizations can be pasted after this line
+         
+          # Loop: File: Glucose Application Factor change
+          curl https://github.com/Trpl7ca/Loop/commit/88296a8827975183ec568fb87ca7507c148cc26c.patch | git apply -v --directory=Loop
+
+          # Loop: File: Eliminate Default Shaking
+          curl https://github.com/Trpl7ca/Loop/commit/889ed44399c4726028a470bdac583b1f15fcd851.patch | git apply -v --directory=Loop
+
+          # OmniBLE: File: Extra Insulin 
+          curl https://github.com/Trpl7ca/OmniBLE/commit/beb295e3bbbb6b96e8cb078c38ffa74baaeb5653.patch | git apply -v --directory=OmniBLE          
           
       # Patch Fastlane Match to not print tables
       - name: Patch Match Tables
