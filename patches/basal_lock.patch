@@ -331,7 +331,7 @@ index 00000000..e413f7b5
 +
 +public extension Guardrail where Value == HKQuantity {
 +    static let basalLockThreshold = Guardrail(
-+        absoluteBounds: HKQuantity(unit: .milligramsPerDeciliter, doubleValue: 200)...HKQuantity(unit: .milligramsPerDeciliter, doubleValue: 300),
++        absoluteBounds: HKQuantity(unit: .milligramsPerDeciliter, doubleValue: 160)...HKQuantity(unit: .milligramsPerDeciliter, doubleValue: 300),
 +        recommendedBounds: HKQuantity(unit: .milligramsPerDeciliter, doubleValue: 220)...HKQuantity(unit: .milligramsPerDeciliter, doubleValue: 300),
 +        startingSuggestion: HKQuantity(unit: .milligramsPerDeciliter, doubleValue: 250)
 +    )
