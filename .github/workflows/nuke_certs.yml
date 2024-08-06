@@ -12,7 +12,7 @@ jobs:
       
       # Checks-out the repo
       - name: Checkout Repo
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
         
       # Patch Fastlane Match to not print tables
       - name: Patch Match Tables
@@ -25,7 +25,7 @@ jobs:
       # Patch Fastlane Match nuke to not print other misc messages
       - name: Patch Other Nuke Info
         run: |
-           find /usr/local/lib/ruby/gems -name nuke.rb | xargs sed -i "" '/UI.message("Deleting profile /d'
+           # find /usr/local/lib/ruby/gems -name nuke.rb | xargs sed -i "" '/UI.message("Deleting profile /d'
            find /usr/local/lib/ruby/gems -name nuke.rb | xargs sed -i "" '/UI.message("Certificate /d'
            find /usr/local/lib/ruby/gems -name nuke.rb | xargs sed -i "" '/UI.message("Revoking certificate /d'
            find /usr/local/lib/ruby/gems -name nuke.rb | xargs sed -i "" '/UI.message("Deleting file /d'
