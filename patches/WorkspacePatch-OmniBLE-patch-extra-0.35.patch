@@ -1,0 +1,24 @@
+From 3f32b60ab41864b35c3dcc8b9eb0e6da0999d9ca Mon Sep 17 00:00:00 2001
+From: Marion Barker <19607791+marionbarker@users.noreply.github.com>
+Date: Fri, 30 Aug 2024 12:33:35 -0700
+Subject: [PATCH] modify cannulaInsertUnitsExtra to 0.35
+
+---
+ OmniBLE/OmnipodCommon/Pod.swift | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+Edit to make this a Workspace level patch
+
+diff --git a/OmniBLE/OmniBLE/OmnipodCommon/Pod.swift b/OmniBLE/OmniBLE/OmnipodCommon/Pod.swift
+index d0daef2e..6377d8ca 100644
+--- a/OmniBLE/OmniBLE/OmnipodCommon/Pod.swift
++++ b/OmniBLE/OmniBLE/OmnipodCommon/Pod.swift
+@@ -79,7 +79,7 @@ public struct Pod {
+     // Checked to verify it agrees with value returned by pod during the pairing process.
+     public static let cannulaInsertionUnits = 0.5
+ 
+-    public static let cannulaInsertionUnitsExtra = 0.0 // edit to add a fixed additional amount of insulin during cannula insertion
++    public static let cannulaInsertionUnitsExtra = 0.35 // edit to add a fixed additional amount of insulin during cannula insertion
+ 
+     // Default and limits for expiration reminder alerts
+     public static let defaultExpirationReminderOffset = TimeInterval(hours: 2)
