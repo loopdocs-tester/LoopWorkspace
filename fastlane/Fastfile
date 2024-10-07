@@ -177,7 +177,7 @@ platform :ios do
       }
     end
 
-    configure_bundle_id("Loop", "com.#{TEAMID}.marionbarker.Loop", [
+    configure_bundle_id("new Loop", "com.#{TEAMID}.marionbarker.Loop", [
       Spaceship::ConnectAPI::BundleIdCapability::Type::APP_GROUPS,
       Spaceship::ConnectAPI::BundleIdCapability::Type::HEALTHKIT,
       Spaceship::ConnectAPI::BundleIdCapability::Type::PUSH_NOTIFICATIONS,
@@ -186,22 +186,22 @@ platform :ios do
       Spaceship::ConnectAPI::BundleIdCapability::Type::NFC_TAG_READING
     ])
 
-    configure_bundle_id("Loop Intent Extension", "com.#{TEAMID}.marionbarker.Loop.Loop-Intent-Extension", [
+    configure_bundle_id("new Loop Intent Extension", "com.#{TEAMID}.marionbarker.Loop.Loop-Intent-Extension", [
       Spaceship::ConnectAPI::BundleIdCapability::Type::APP_GROUPS
     ])
 
-    configure_bundle_id("Loop Status Extension", "com.#{TEAMID}.marionbarker.Loop.statuswidget", [
+    configure_bundle_id("new Loop Status Extension", "com.#{TEAMID}.marionbarker.Loop.statuswidget", [
       Spaceship::ConnectAPI::BundleIdCapability::Type::APP_GROUPS
     ])
 
-    configure_bundle_id("WatchApp", "com.#{TEAMID}.marionbarker.Loop.LoopWatch", [])
+    configure_bundle_id("new WatchApp", "com.#{TEAMID}.marionbarker.Loop.LoopWatch", [])
 
-    configure_bundle_id("WatchApp Extension", "com.#{TEAMID}.marionbarker.Loop.LoopWatch.watchkitextension", [
+    configure_bundle_id("new WatchApp Extension", "com.#{TEAMID}.marionbarker.Loop.LoopWatch.watchkitextension", [
       Spaceship::ConnectAPI::BundleIdCapability::Type::HEALTHKIT,
       Spaceship::ConnectAPI::BundleIdCapability::Type::SIRIKIT
     ])
 
-    configure_bundle_id("Loop Widget Extension", "com.#{TEAMID}.marionbarker.Loop.LoopWidgetExtension", [
+    configure_bundle_id("new Loop Widget Extension", "com.#{TEAMID}.marionbarker.Loop.LoopWidgetExtension", [
       Spaceship::ConnectAPI::BundleIdCapability::Type::APP_GROUPS
     ])
     
