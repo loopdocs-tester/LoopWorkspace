@@ -277,6 +277,9 @@ jobs:
           # Several patches may be added per submodule.
           # Adding comments (#) may be useful to easily tell the individual patches apart.
 
+          # Apply Loop PR 2241 to restore TestFlight expiration date to Loop
+          curl https://github.com/loopandlearn/Loop/commit/ae76f90955843df0e1e4297f6c7c669d21e5eae2.patch | git apply --directory=Loop
+
       # Patch Fastlane Match to not print tables
       - name: Patch Match Tables
         run: |
